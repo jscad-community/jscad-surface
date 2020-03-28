@@ -1,0 +1,24 @@
+{
+  "name": "jscad-surface",
+  "version": "1.0.0",
+  "description": "tbw",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "nyc --all --reporter=html --reporter=text npm test",
+    "test": "ava 'src/**/*.test.js' --verbose --timeout 2m"
+  },
+  "keywords": [
+    "jscad",
+    "image",
+    "surface",
+    "mesh"
+  ],
+  "author": "z3dev",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "image-decode": "1.2.2",
+    "ava": "^0.23.0",
+    "nyc": "^10.3.2"
+  }
+}
