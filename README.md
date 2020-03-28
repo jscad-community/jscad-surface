@@ -24,7 +24,7 @@ Additional options provide smoothing of Z values (in-place), etc. See src/extrud
 ## Table of Contents
 
 - [Usage](#usage)
-- [Special Note](#special note)
+- [Special Note](#special-note)
 - [License](#license)
 
 ## Usage
