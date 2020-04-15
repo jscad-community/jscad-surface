@@ -33,6 +33,8 @@ There's an example project provided, which must be used with JSCAD CLI V2.
 This example reads a small image file, which is converted into a heightmap, then extruded into a surface.
 See the contents of the example directory, and read main.js for instructions.
 
+![Screenshot](https://github.com/jscad-community/jscad-surface/blob/master/example/example01.png)
+
 ## Special Note
 
 **THIS PROJECT ONLY WORKS WITH JSCAD V2.**
