@@ -23,9 +23,22 @@ Additional options provide smoothing of Z values (in-place), etc. See src/extrud
 
 ## Table of Contents
 
+- [Installation](#installation)
 - [Usage](#usage)
 - [Special Note](#special-note)
 - [License](#license)
+
+## Installation
+
+For Node.js based projects, this package can be installed using NPM.
+```
+npm install jscad-surface
+```
+
+For standalone projects, this package can be downloaded and included as a component.
+- Download the package from GitHub
+- Unzip the contents, which will produce a directory called 'jscad-surface'
+- Copy the 'jscad-surface' directory into the larger project
 
 ## Usage
 
@@ -33,7 +46,7 @@ There's an example project provided, which must be used with JSCAD CLI V2.
 This example reads a small image file, which is converted into a heightmap, then extruded into a surface.
 See the contents of the example directory, and read main.js for instructions.
 
-![Screenshot](https://github.com/jscad-community/jscad-surface/blob/master/example/example01.png)
+![Screenshot](./example/example01.png)
 
 ## Special Note
 
@@ -45,5 +58,5 @@ See the user guide on [Early Adoption of V2](https://openjscad.org/dokuwiki/doku
 
 ## License
 
-[The MIT License (MIT)](https://github.com/jscad/jscad-object-api/blob/master/LICENSE)
+[The MIT License (MIT)](./LICENSE)
 

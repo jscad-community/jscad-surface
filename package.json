@@ -1,11 +1,12 @@
 {
   "name": "jscad-surface",
-  "version": "1.0.0",
-  "description": "tbw",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Create 3D surfaces from height map data",
+  "main": "src/index.js",
   "scripts": {
     "coverage": "nyc --all --reporter=html --reporter=text npm test",
-    "test": "ava 'src/**/*.test.js' --verbose --timeout 2m"
+    "lint": "standard './**/*.js'",
+    "test": "ava 'tests/**/*.test.js' --verbose --timeout 2m"
   },
   "keywords": [
     "jscad",
@@ -18,7 +19,8 @@
   "dependencies": {},
   "devDependencies": {
     "image-decode": "1.2.2",
-    "ava": "^0.23.0",
-    "nyc": "^10.3.2"
+    "ava": "1.4.0",
+    "nyc": "15.0.0",
+    "standard": "14.3.1"
   }
 }

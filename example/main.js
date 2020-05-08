@@ -25,16 +25,16 @@ const decode = require('image-decode')
  */
 const main = () => {
   // read the image data from a file
-  let imageData = decode(fs.readFileSync('example/MandM.jpg'))
+  const imageData = decode(fs.readFileSync('example/MandM.jpg'))
   console.log('imageData:', imageData.width, imageData.height)
 
   // convert the image data into a heightmap
-  let myheightmap = heightmap.fromImageData(imageData)
+  const myheightmap = heightmap.fromImageData(imageData)
 
   // convert the heightmap into a 3D surface
-  let mysurface = extrudeSurface({scale: [1,1,-20], smooth: 2, base: 25.0}, myheightmap)
+  const mysurface = extrudeSurface({ scale: [1, 1, -20], smooth: 2, base: 25.0 }, myheightmap)
 
   return mysurface
 }
 
-module.exports = {main}
+module.exports = { main }
