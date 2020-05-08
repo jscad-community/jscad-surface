@@ -6,7 +6,7 @@
   "scripts": {
     "coverage": "nyc --all --reporter=html --reporter=text npm test",
     "lint": "standard './**/*.js'",
-    "test": "ava 'src/**/*.test.js' --verbose --timeout 2m"
+    "test": "ava 'tests/**/*.test.js' --verbose --timeout 2m"
   },
   "keywords": [
     "jscad",

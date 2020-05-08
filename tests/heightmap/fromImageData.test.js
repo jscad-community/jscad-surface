@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const decode = require('image-decode')
 
-const { fromImageData } = require('./index')
+const { fromImageData } = require('../../src/index').heightmap
 
 const logImageData = (imagedata) => {
   console.log(`ImageData: ${imagedata.width} ${imagedata.height}`)

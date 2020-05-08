@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { extrudeSurface, heightmap } = require('./index')
+const { extrudeSurface, heightmap } = require('../src/index')
 
 test('extrudeSurface (defaults)', t => {
   const data = [

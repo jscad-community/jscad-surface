@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { createMesh, heightmap } = require('./index')
+const { createMesh, heightmap } = require('../src/index')
 
 test('createMesh (defaults)', t => {
   const data = [
