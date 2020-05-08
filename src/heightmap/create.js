@@ -10,7 +10,7 @@ const create = (data, width, length) => {
     width = 0
     length = 0
   }
-  return {data, width, length}
+  return { data, width, length }
 }
 
 module.exports = create

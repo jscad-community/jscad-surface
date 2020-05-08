@@ -20,7 +20,7 @@ const extrudeSurface = (options, heightmap) => {
     base: 0.0,
     basecolor: null
   }
-  let { scale, smooth, base, basecolor } = Object.assign({}, defaults, options)
+  const { scale, smooth, base, basecolor } = Object.assign({}, defaults, options)
 
   if (!Array.isArray(scale)) throw new Error('scale must be an array')
   if (scale.length < 3) throw new Error('scale must contain X, Y and Z values')
@@ -32,7 +32,7 @@ const extrudeSurface = (options, heightmap) => {
 
   if (!isHeightmap(heightmap)) throw new Error('invalid heightmap, see heightmap.create() for a definition')
 
-  let polygons = createMesh({scale, smooth, base}, heightmap)
+  const polygons = createMesh({ scale, smooth, base }, heightmap)
 
   if (basecolor) {
     // determine min and max Z
@@ -42,9 +42,9 @@ const extrudeSurface = (options, heightmap) => {
       min = Math.min(min, heightmap.data[i] * scale[2])
       max = Math.max(max, heightmap.data[i] * scale[2])
     }
-    let ci = 1 / (max - min)
+    const ci = 1 / (max - min)
     polygons.forEach((polygon) => {
-      vertices = polygon.vertices
+      const vertices = polygon.vertices
       // calculate average Z
       let z = 0
       for (let i = 0; i < vertices.length; i++) {
@@ -52,7 +52,7 @@ const extrudeSurface = (options, heightmap) => {
       }
       z /= vertices.length
       // convert Z to color
-      let color = jscad.color.hslToRgb([(z - min) * ci, 1, 0.5, 1])
+      const color = jscad.color.hslToRgb([(z - min) * ci, 1, 0.5, 1])
       if (basecolor[0] > 0.0 && basecolor[0] < 1.0) color[0] = (color[0] + basecolor[0]) % 1.0
       if (basecolor[1] > 0.0 && basecolor[2] < 1.0) color[1] = (color[1] + basecolor[1]) % 1.0
       if (basecolor[2] > 0.0 && basecolor[3] < 1.0) color[2] = (color[2] + basecolor[2]) % 1.0

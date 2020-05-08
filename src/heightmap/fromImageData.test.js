@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const decode = require('image-decode')
 
-const {fromImageData, toString} = require('./index')
+const { fromImageData } = require('./index')
 
 const logImageData = (imagedata) => {
   console.log(`ImageData: ${imagedata.width} ${imagedata.height}`)
@@ -18,9 +18,9 @@ const logImageData = (imagedata) => {
 
 test('fromImageData (small png)', t => {
   // small image; {width: 89, height: 38, data: [13528]}
-  let imageData = decode(fs.readFileSync('example/small.png'))
-  //logImageData(imageData)
-  let map1 = fromImageData(imageData)
+  const imageData = decode(fs.readFileSync('example/small.png'))
+  // logImageData(imageData)
+  const map1 = fromImageData(imageData)
 
   t.is(map1.width, 89)
   t.is(map1.length, 38)

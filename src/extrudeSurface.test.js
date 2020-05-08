@@ -1,10 +1,9 @@
 const test = require('ava')
 
-const extrudeSurface = require('./extrudeSurface')
-const heightmap = require('./heightmap')
+const { extrudeSurface, heightmap } = require('./index')
 
 test('extrudeSurface (defaults)', t => {
-  let data = [
+  const data = [
     0.5, 0.4, 0.3, 0.2, 0.1, 0.0,
     0.6, 0.5, 0.4, 0.3, 0.2, 0.1,
     0.7, 0.6, 0.5, 0.4, 0.3, 0.2,
@@ -12,14 +11,14 @@ test('extrudeSurface (defaults)', t => {
     0.9, 0.8, 0.7, 0.6, 0.5, 0.4,
     1.0, 0.9, 0.8, 0.7, 0.6, 0.5
   ]
-  let map = heightmap.create(data, 6, 6)
-  let geom = extrudeSurface({}, map)
+  const map = heightmap.create(data, 6, 6)
+  const geom = extrudeSurface({}, map)
 
   t.is(geom.polygons.length, 50) // 5 x 5 x 2 triangles
 })
 
 test('extrudeSurface (scale)', t => {
-  let data = [
+  const data = [
     0.5, 0.4, 0.3, 0.2, 0.1, 0.0,
     0.6, 0.5, 0.4, 0.3, 0.2, 0.1,
     0.7, 0.6, 0.5, 0.4, 0.3, 0.2,
@@ -27,8 +26,8 @@ test('extrudeSurface (scale)', t => {
     0.9, 0.8, 0.7, 0.6, 0.5, 0.4,
     1.0, 0.9, 0.8, 0.7, 0.6, 0.5
   ]
-  let map = heightmap.create(data, 6, 6)
-  let geom = extrudeSurface({scale: [5, 5, 10]}, map)
+  const map = heightmap.create(data, 6, 6)
+  const geom = extrudeSurface({ scale: [5, 5, 10] }, map)
 
   t.is(geom.polygons.length, 50) // 5 x 5 x 2 triangles
 
@@ -36,7 +35,7 @@ test('extrudeSurface (scale)', t => {
 })
 
 test('extrudeSurface (color)', t => {
-  let data = [
+  const data = [
     1.0, 0.5, 0.0, 0.0, 0.5, 1.0,
     0.5, 0.0, 0.5, 0.5, 0.0, 0.5,
     0.0, 1.0, 2.0, 2.0, 1.0, 0.0,
@@ -44,8 +43,8 @@ test('extrudeSurface (color)', t => {
     0.5, 0.0, 0.5, 0.5, 0.0, 0.5,
     1.0, 0.5, 0.0, 0.0, 0.5, 1.0
   ]
-  let map = heightmap.create(data, 6, 6)
-  let geom = extrudeSurface({scale: [5, 5, 10], basecolor: [0, 0, 0, 1]}, map)
+  const map = heightmap.create(data, 6, 6)
+  const geom = extrudeSurface({ scale: [5, 5, 10], basecolor: [0, 0, 0, 1] }, map)
 
   t.is(geom.polygons.length, 50) // 5 x 5 x 2 triangles
 
