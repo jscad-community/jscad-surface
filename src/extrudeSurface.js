@@ -52,7 +52,7 @@ const extrudeSurface = (options, heightmap) => {
       }
       z /= vertices.length
       // convert Z to color
-      const color = jscad.color.hslToRgb([(z - min) * ci, 1, 0.5, 1])
+      const color = jscad.colors.hslToRgb([(z - min) * ci, 1, 0.5, 1])
       if (basecolor[0] > 0.0 && basecolor[0] < 1.0) color[0] = (color[0] + basecolor[0]) % 1.0
       if (basecolor[1] > 0.0 && basecolor[2] < 1.0) color[1] = (color[1] + basecolor[1]) % 1.0
       if (basecolor[2] > 0.0 && basecolor[3] < 1.0) color[2] = (color[2] + basecolor[2]) % 1.0
