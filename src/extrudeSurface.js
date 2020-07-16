@@ -62,7 +62,7 @@ const extrudeSurface = (options, heightmap) => {
     })
   }
 
-  return jscad.geometry.geom3.create(polygons)
+  return jscad.geometries.geom3.create(polygons)
 }
 
 module.exports = extrudeSurface

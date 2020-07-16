@@ -56,7 +56,7 @@ const createMesh = (options, heightmap) => {
       min = Math.min(min, z)
       max = Math.max(max, z)
 
-      const vertex = jscad.math.vec3.fromValues(x, y, z)
+      const vertex = jscad.maths.vec3.fromValues(x, y, z)
       vertices.push(vertex)
     }
   }
@@ -71,20 +71,24 @@ const createMesh = (options, heightmap) => {
       const iBL = x1 + (y1 + 1) * width
       const iBR = (x1 + 1) + (y1 + 1) * width
 
-      const poly1 = jscad.geometry.poly3.fromPoints([vertices[iTL], vertices[iBL], vertices[iTR]])
-      const poly2 = jscad.geometry.poly3.fromPoints([vertices[iBL], vertices[iBR], vertices[iTL]])
-      const poly3 = jscad.geometry.poly3.fromPoints([vertices[iBR], vertices[iTR], vertices[iBL]])
-      const poly4 = jscad.geometry.poly3.fromPoints([vertices[iTR], vertices[iTL], vertices[iBR]])
+      const poly1 = jscad.geometries.poly3.fromPoints([vertices[iTL], vertices[iBL], vertices[iTR]])
+      const plane1 = jscad.geometries.poly3.plane(poly1)
+      const poly2 = jscad.geometries.poly3.fromPoints([vertices[iBL], vertices[iBR], vertices[iTL]])
+      const plane2 = jscad.geometries.poly3.plane(poly2)
+      const poly3 = jscad.geometries.poly3.fromPoints([vertices[iBR], vertices[iTR], vertices[iBL]])
+      const plane3 = jscad.geometries.poly3.plane(poly3)
+      const poly4 = jscad.geometries.poly3.fromPoints([vertices[iTR], vertices[iTL], vertices[iBR]])
+      const plane4 = jscad.geometries.poly3.plane(poly4)
 
       // choose the least flat polygons
-      const znormal = jscad.math.vec3.fromValues(0, 0, 1)
+      const znormal = jscad.maths.vec3.fromValues(0, 0, 1)
       let pi = 1
-      let pd = jscad.math.vec3.squaredDistance(poly1.plane, znormal)
-      let d = jscad.math.vec3.squaredDistance(poly2.plane, znormal)
+      let pd = jscad.maths.vec3.squaredDistance(plane1, znormal)
+      let d = jscad.maths.vec3.squaredDistance(plane2, znormal)
       if (d > pd) { pi = 2; pd = d }
-      d = jscad.math.vec3.squaredDistance(poly3.plane, znormal)
+      d = jscad.maths.vec3.squaredDistance(plane3, znormal)
       if (d > pd) { pi = 3; pd = d }
-      d = jscad.math.vec3.squaredDistance(poly4.plane, znormal)
+      d = jscad.maths.vec3.squaredDistance(plane4, znormal)
       if (d > pd) { pi = 4; pd = d }
 
       // add the polygons to the list of faces
@@ -108,8 +112,8 @@ const createMesh = (options, heightmap) => {
             const v1 = vertices[iv1]
             const v2 = [v1[0], v1[1], z]
             const v3 = [v0[0], v0[1], z]
-            faces.push(jscad.geometry.poly3.fromPoints([v3, v2, v1]))
-            faces.push(jscad.geometry.poly3.fromPoints([v1, v0, v3]))
+            faces.push(jscad.geometries.poly3.fromPoints([v3, v2, v1]))
+            faces.push(jscad.geometries.poly3.fromPoints([v1, v0, v3]))
           }
         }
         if (y === (length - 1)) {
@@ -120,8 +124,8 @@ const createMesh = (options, heightmap) => {
             const v1 = vertices[iv1]
             const v2 = [v1[0], v1[1], z]
             const v3 = [v0[0], v0[1], z]
-            faces.push(jscad.geometry.poly3.fromPoints([v0, v1, v2]))
-            faces.push(jscad.geometry.poly3.fromPoints([v2, v3, v0]))
+            faces.push(jscad.geometries.poly3.fromPoints([v0, v1, v2]))
+            faces.push(jscad.geometries.poly3.fromPoints([v2, v3, v0]))
           }
         }
 
@@ -133,8 +137,8 @@ const createMesh = (options, heightmap) => {
             const v1 = vertices[iv1]
             const v2 = [v1[0], v1[1], z]
             const v3 = [v0[0], v0[1], z]
-            faces.push(jscad.geometry.poly3.fromPoints([v0, v1, v2]))
-            faces.push(jscad.geometry.poly3.fromPoints([v2, v3, v0]))
+            faces.push(jscad.geometries.poly3.fromPoints([v0, v1, v2]))
+            faces.push(jscad.geometries.poly3.fromPoints([v2, v3, v0]))
           }
         }
         if (x === (width - 1)) {
@@ -145,8 +149,8 @@ const createMesh = (options, heightmap) => {
             const v1 = vertices[iv1]
             const v2 = [v1[0], v1[1], z]
             const v3 = [v0[0], v0[1], z]
-            faces.push(jscad.geometry.poly3.fromPoints([v3, v2, v1]))
-            faces.push(jscad.geometry.poly3.fromPoints([v1, v0, v3]))
+            faces.push(jscad.geometries.poly3.fromPoints([v3, v2, v1]))
+            faces.push(jscad.geometries.poly3.fromPoints([v1, v0, v3]))
           }
         }
       }
@@ -161,8 +165,8 @@ const createMesh = (options, heightmap) => {
     v2 = [v2[0], v2[1], z]
     let v3 = vertices[(width - 1) + (length - 1) * width]
     v3 = [v3[0], v3[1], z]
-    faces.push(jscad.geometry.poly3.fromPoints([v2, v1, v0]))
-    faces.push(jscad.geometry.poly3.fromPoints([v1, v2, v3]))
+    faces.push(jscad.geometries.poly3.fromPoints([v2, v1, v0]))
+    faces.push(jscad.geometries.poly3.fromPoints([v1, v2, v3]))
   }
   return faces
 }
