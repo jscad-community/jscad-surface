@@ -2,6 +2,7 @@
   "name": "jscad-surface",
   "version": "1.0.1",
   "description": "Create 3D surfaces from height map data",
+  "repository": "https://github.com/jscad-community/jscad-surface",
   "main": "src/index.js",
   "scripts": {
     "coverage": "nyc --all --reporter=html --reporter=text npm test",
@@ -16,11 +17,13 @@
   ],
   "author": "z3dev",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@jscad/modeling": "alpha"
+  },
   "devDependencies": {
     "image-decode": "1.2.2",
-    "ava": "1.4.0",
-    "nyc": "15.0.0",
+    "ava": "3.10.0",
+    "nyc": "15.1.0",
     "standard": "14.3.1"
   }
 }
