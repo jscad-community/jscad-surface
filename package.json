@@ -18,11 +18,11 @@
   "author": "z3dev",
   "license": "MIT",
   "dependencies": {
-    "@jscad/modeling": "alpha"
+    "@jscad/modeling": "2.0.0"
   },
   "devDependencies": {
     "image-decode": "1.2.2",
-    "ava": "3.10.0",
+    "ava": "3.15.0",
     "nyc": "15.1.0",
     "standard": "14.3.1"
   }
